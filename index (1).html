@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mp3 Music</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: mediumslateblue;
+              padding: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 0.1;/*<!mao ang nag adjust sa spacing sa paragraph---->*/
+        }
+
+        h1 {
+            color: lightpink;
+        }
+
+        /* Styling for lyrics */
+        #lyrics {
+          margin-bottom: 30px;
+          display: flex;
+           align-items: center; /*<!mao ang nagcommand para ma center---->*/
+            margin-top: 5px;
+            font-size: 20px;
+            flex-direction: column;/*<!mo ang nagkuan sa line---->*/
+        }
+
+        /* Animation for lyrics */
+        line {
+            
+            color: blanchedalmond;
+            transition: opacity 0.5s ease-in-out, color 0.5s ease-in-out;
+        }
+
+        /* Highlighted line */
+        .highlight {
+            color: yellow;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>YOU ARE MY SUNSHINE</h1>
+    <img src="/IMG_20240716_113644_576.jpg" length="300" width="200"
+    
+    
+    <!-- Audio Player -->
+    <audio id="audioPlayer" controls>
+        <source src="/you are my sunshine" type="audio/mpeg">
+    </audio>
+    
+    <!-- Lyrics Section -->
+    <div id="lyrics">
+        <h1> Pre-Chorus</h1>
+       <p id="line1" class="line">You are my sunshine.</p>
+        <p id="line2" class="line">My only sunshine </p>
+        <p id="line3" class="line">You make me happy</p>
+        <p id="line4" class="line">When skies are gray</p>
+        <p id="line5" class="line">You'll never know, dear</p>
+        <p id="line6" class="line">How much I LOVE YOU.</p>
+        <p id="line7" class="line">Please don't take </p>
+        <p id="line8" class="line">My sunshine away</p>
+        
+        <h1> Intro </h1>
+        
+        <p id="line9" class="line">The other night, dear</p>
+        <p id="line10" class="line">As I lay sleeping</p>
+        <p id="line11"  class="line">I dreamed I held you</p>
+      <p id="line12"  class="line">In my arms </p>
+    <p id="line13"  class="line">When I awoke, dear</p>
+<p id="line14" class="line">I was mistaken</p>
+<p id="line15" class="line">So
+ I hung my head and cried</p>
+ 
+<h1> CHORUS </h1>
+
+ <p id="line1" class="line">You are my sunshine.</p>
+        <p id="line2" class="line">My only sunshine </p>
+        <p id="line3" class="line">You make me happy</p>
+        <p id="line4" class="line">When skies are gray</p>
+        <p id="line5" class="line">You'll never know, dear</p>
+        <p id="line6" class="line">How much I LOVE YOU.</p>
+        <p id="line7" class="line">Please don't take </p>
+        <p id="line8" class="line">My sunshine away</p>
+     <p> </p>   
+        
+    </div>
+
+    <script>
+        const lyrics = [
+          {time: 1, lineId: "line1"},
+          { time: 5, lineId: "line2" },
+          { time: 9.5, lineId: "line3"},
+         { time: 12.5, lineId: "line4"},
+         {time: 15.5, lineId: "line5" },
+         { time: 18.5, lineId: "line6"},
+         { time: 21.5, lineId: "line7"},
+         { time: 24.5, lineId: "line8"},
+         {time: 27.5, lineId: "line9"},
+       { time: 30.5, lineId: "line10" },
+       { time: 33.5, lineId: "line11"},
+       { time: 36.5, lineId: "line12"},
+        {time: 39.5, lineId: "line13" },
+        { time: 42.5, lineId: "line14"},
+       { time: 45.5, lineId: "line15"},
+       
+        ];
+
+        const audioPlayer = document.getElementById('audioPlayer');
+
+        audioPlayer.addEventListener('timeupdate', () => {
+            const currentTime = audioPlayer.currentTime;
+
+            lyrics.forEach(lyric => {
+                const line = document.getElementById(lyric.lineId);
+                if (currentTime >= lyric.time) {
+                    line.classList.add('highlight');
+                } else {
+                    line.classList.remove('highlight');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
